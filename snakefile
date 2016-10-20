@@ -1,12 +1,16 @@
-SAMPLES = ["P1hom", "P2hom", "T1hom", "T1het"]
-INDIR = "raw_reads/"
-BAMDIR = "test/"
+configfile: "config.json"
+
+'''
+SAMPLES = config["SAMPLES"]
+INDIR = config["INDIR"]
+BAMDIR = config["BAMDIR"]
+'''
 
 rule align:
     input:
-        INDIR + "{sample}"
+        config["INDIR"] + "{sample}"
     output:
-        BAMDIR + "{sample}.txt" # replace .txt with .bam
+        config["BAMDIR"] + "{sample}.txt" # replace .txt with .bam
     shell:
         # placeholder command until I get STAR on my desktop or Python 3.5 on the server
         # this command will call STAR and generate bam file
@@ -15,7 +19,7 @@ rule align:
 
 rule count:
     input:
-        expand(BAMDIR + "{sample}.txt", sample = SAMPLES)
+        expand(config["BAMDIR"] + "{sample}.txt", sample = config["SAMPLES"])
     output:
         "counts/count_table.txt" # replace .txt with .bam
     shell:
