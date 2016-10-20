@@ -1,0 +1,5 @@
+{
+  "INDIR": "raw_reads/",
+  "BAMDIR": "test/",
+  "SAMPLES": ["P1hom", "P2hom", "T1hom", "T1het"]
+}
