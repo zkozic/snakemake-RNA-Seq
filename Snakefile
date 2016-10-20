@@ -1,5 +1,17 @@
 configfile: "config.json"
 
+rule index_genome:
+    input:
+        fasta = config["GENOME_FA"],
+        gtf = config["GENOME_GTF"]
+    output:
+        config["GENOME_INDEX_DIR"]
+    params:
+        overhang = "99"
+    shell:
+        "mkdir -p {output};"
+        "STAR --runMode genomeGenerate --genomeDir {output} --genomeFastaFiles {input.fasta} --sjdbGTFfile {input.gtf} --sjdbOverhang {params.overhang}"
+
 rule align:
     input:
         reads = config["INDIR"] + "{sample}",
