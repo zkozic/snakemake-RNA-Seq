@@ -4,5 +4,8 @@
   "SAMPLES": ["T1hom", "T1het"],
   "GENOME_FA": "/home/zkozic/work/genomicFeatures/Ensembl81/Mus_musculus.GRCm38.dna.primary_assembly.fa",
   "GENOME_GTF": "/home/zkozic/work/genomicFeatures/Ensembl81/Mus_musculus.GRCm38.81.gtf",
-  "GENOME_INDEX_DIR": "/home/zkozic/work/genomicFeatures/testGenome"
+  "GENOME_INDEX_DIR": "/home/zkozic/work/genomicFeatures/testGenome",
+
+  "CLASS1": ["T1het", "T2het"],
+  "CLASS2": ["T1hom", "T2hom"]
 }
