@@ -6,10 +6,13 @@ Since they preform read adapter trimming and initial QC, these steps will not be
 Current version is functional until and including the read counting.
 
 Requirements:
+
 -Python 3.3+
+
 
 -snakemake
   https://bitbucket.org/snakemake/snakemake/wiki/Home
+
 
 -STAR: RNA-Seq aligner
   https://github.com/alexdobin/STAR
