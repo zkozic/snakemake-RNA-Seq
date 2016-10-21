@@ -30,7 +30,7 @@ rule align:
 rule count:
     input:
         gtf = config["GENOME_GTF"],
-        bams = expand(config["BAMDIR"] + "{bamsample}.bam", bamsample = config["SAMPLES"])
+        bams = expand(config["BAMDIR"] + "{bamsample}.bam", bamsample = config["CLASS1"] + config["CLASS2"])
     output:
         "counts/counts.txt"
     shell:
