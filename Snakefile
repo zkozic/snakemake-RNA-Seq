@@ -35,3 +35,11 @@ rule count:
         "counts/counts.txt"
     shell:
         "featureCounts -R -a {input.gtf} -o {output} {input.bams}"
+
+rule DESeq_data:
+    input:
+        "counts/counts.txt"
+    output:
+        "DEresults/DESeq2.RData",
+    script:
+        "scripts/DE.R"
