@@ -40,6 +40,14 @@ rule DESeq_data:
     input:
         "counts/counts.txt"
     output:
-        "DEresults/DESeq2.RData",
+        "DEresults/DESeq2.RData"
     script:
-        "scripts/DE.R"
+        "Scripts/DE.R"
+
+rule plot_PCA:
+    input:
+        "DEresults/DESeq2.RData"
+    output:
+        "DEresults/PCA_plot.tiff"
+    shell:
+        "Rscript Scripts/PCA.R"
