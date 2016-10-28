@@ -1,8 +1,6 @@
-options(warn = -1)
-
-library(stringr)
-library(DESeq2)
-library(ggplot2)
+suppressWarnings(suppressMessages(library(stringr)))
+suppressWarnings(suppressMessages(library(DESeq2)))
+suppressWarnings(suppressMessages(library(ggplot2)))
 
 # Read arguments from snakemake
 counts = attr(snakemake, 'input')[[1]]
@@ -27,4 +25,4 @@ rownames(sample.class) <- names(sample.index)
 deseq <- DESeqDataSetFromMatrix(countData = count.table, colData = sample.class, design = ~ class)
 
 # Save deseq object and count table
-save(counts, c1, c2, file = 'DEresults/DESeq2.RData')
+save(deseq, count.table, c1, c2, file = 'DEresults/DESeq2.RData')
