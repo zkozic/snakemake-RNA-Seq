@@ -51,3 +51,14 @@ rule plot_PCA:
         "DEresults/PCA_plot.tiff"
     shell:
         "Rscript Scripts/PCA.R"
+
+rule DESeq_DE:
+    input:
+        "DEresults/DESeq2.RData"
+    output:
+        "DEresults/DESeq_results.xlsx",
+        "DEresults/signif_DESeq_results.xlsx",
+        "DEresults/MA_plot.tiff",
+        "DEresults/DESEq_results.RData"
+    script:
+        "Scripts/DESeq_DE.R"
