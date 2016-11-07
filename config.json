@@ -7,5 +7,6 @@
   "GENOME_INDEX_DIR": "/home/zkozic/work/genomicFeatures/testGenome",
 
   "CLASS1": ["T1het", "T2het"],
-  "CLASS2": ["T1hom", "T2hom"]
+  "CLASS2": ["T1hom", "T2hom"],
+  "ANNOTATION": "counts/anntab.txt"
 }
