@@ -42,7 +42,7 @@ rule DESeq_data:
     output:
         "DEresults/DESeq2.RData"
     script:
-        "Scripts/DE.R"
+        "Scripts/DESeq_object.R"
 
 rule plot_PCA:
     input:
