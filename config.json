@@ -1,12 +1,12 @@
 {
-  "INDIR": "raw_reads/",
+  "INDIR": "../all_reads/",
   "BAMDIR": "bam/",
-  "SAMPLES": ["T1hom", "T1het"],
-  "GENOME_FA": "/home/zkozic/work/genomicFeatures/Ensembl81/Mus_musculus.GRCm38.dna.primary_assembly.fa",
-  "GENOME_GTF": "/home/zkozic/work/genomicFeatures/Ensembl81/Mus_musculus.GRCm38.81.gtf",
-  "GENOME_INDEX_DIR": "/home/zkozic/work/genomicFeatures/testGenome",
+  "SAMPLES": ["C2_Cont2", "C3_Cont3", "C4_Control4", "C5_Control5", "C6_Control6", "S2_Samp2", "S3_Samp3", "S4_Sample4", "S5_Sample5", "S6_Sample6"],
+  "GENOME_FA": "/home/zkozic/work/genomicFeatures/Ensembl86/Mus_musculus.GRCm36.dna.primary_assembly.fa",
+  "GENOME_GTF": "/home/zkozic/work/genomicFeatures/Ensembl86/Mus_musculus.GRCm38.86.gtf",
+  "GENOME_INDEX_DIR": "/home/zkozic/work/genomicFeatures/STAR_Ensembl86",
 
-  "CLASS1": ["T1het", "T2het"],
-  "CLASS2": ["T1hom", "T2hom"],
+  "CLASS1": ["C2_Cont2", "C3_Cont3", "C4_Control4", "C5_Control5", "C6_Control6"],
+  "CLASS2": ["S2_Samp2", "S3_Samp3", "S4_Sample4", "S5_Sample5", "S6_Sample6"],
   "ANNOTATION": "counts/anntab.txt"
 }

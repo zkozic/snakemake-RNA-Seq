@@ -20,12 +20,12 @@ rule align:
         config["BAMDIR"] + "{sample}.bam"
     params:
         outdir = "{sample}",
-        cores = "16"
+        cores = "4"
 
     shell:
         "mkdir -p STAR/{params.outdir}/;"
-        "STAR --genomeDir {input.genome_index} --readFilesIn `ls {input.reads}/*_1.sanfastq.gz | paste -d ',' -s -` `ls {input.reads}/*_2.sanfastq.gz | paste -d ',' -s -` --outFileNamePrefix STAR/{params.outdir}/ --readFilesCommand zcat --genomeLoad NoSharedMemory --outSAMtype BAM SortedByCoordinate --outFilterMultimapNmax 3 --outSAMstrandField intronMotif --runThreadN {params.cores};"
-        "mv `ls STAR/{params.outdir}/*.bam` {output};"
+        "STAR --genomeDir {input.genome_index} --readFilesIn `ls {input.reads}/*_1.fastq.gz | paste -d ',' -s -` `ls {input.reads}/*_2.fastq.gz | paste -d ',' -s -` --outFileNamePrefix STAR/{params.outdir}/ --readFilesCommand zcat --genomeLoad NoSharedMemory --clip3pAdapterSeq AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT --outSAMtype BAM SortedByCoordinate --outFilterMultimapNmax 3 --outSAMstrandField intronMotif --runThreadN {params.cores};"
+	"mv `ls STAR/{params.outdir}/*.bam` {output};"
 
 rule count:
     input:
@@ -34,7 +34,7 @@ rule count:
     output:
         "counts/counts.txt"
     shell:
-        "featureCounts -R -a {input.gtf} -o {output} {input.bams}"
+        "featureCounts -R -B -p -T 8 -a {input.gtf} -o {output} {input.bams}"
 
 rule DESeq_data:
     input:
